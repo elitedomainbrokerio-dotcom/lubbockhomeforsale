@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LubbockHomeForSale.com - Find Your Lubbock Legacy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC; /* Light gray background */
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://placehold.co/1200x800/FFA726/000000?text=Lubbock+Sunset');
+            background-size: cover;
+            background-position: center;
+        }
+        .brand-text-orange { color: #F97316; }
+        .brand-text-red { color: #DC2626; }
+        .brand-bg-orange { background-color: #F97316; }
+        .brand-bg-red { background-color: #DC2626; }
+        .nav-link {
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link.active, .nav-link:hover {
+            color: #F97316;
+            border-bottom-color: #F97316;
+        }
+        .stat-card {
+            background-color: white;
+            border-left: 5px solid #F97316;
+        }
+        .cta-button {
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        #page-content .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Style for simple demo page */
+        .demo-page { font-family: Arial, sans-serif; background: linear-gradient(to right, #FF6B35, #F7931E); color: white; text-align: center; padding: 50px; }
+        .demo-page .hero { font-size: 2em; margin-bottom: 20px; }
+        .demo-page input { padding: 10px; width: 300px; margin: 10px; color: #333; border-radius: 8px; border:none; }
+        .demo-page button { background: #333; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 8px; }
+
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold brand-text-orange">
+                <i data-lucide="home" class="inline-block -mt-1"></i>
+                Lubbock Nest
+            </a>
+            <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                <a href="#home" class="nav-link text-slate-600 font-semibold">Home</a>
+                <a href="#about" class="nav-link text-slate-600 font-semibold">Our Vision</a>
+                <a href="#why-lubbock" class="nav-link text-slate-600 font-semibold">Why Lubbock?</a>
+                <a href="#neighborhoods" class="nav-link text-slate-600 font-semibold">Neighborhoods</a>
+                <a href="#buyers" class="nav-link text-slate-600 font-semibold">Buyers</a>
+                <a href="#sellers" class="nav-link text-slate-600 font-semibold">Sellers</a>
+                <a href="#blog" class="nav-link text-slate-600 font-semibold">Blog</a>
+                <a href="#investors" class="nav-link text-slate-600 font-semibold">For Investors</a>
+                <a href="#contact" class="nav-link text-slate-600 font-semibold">Contact</a>
+                <a href="#demo" class="nav-link text-slate-600 font-semibold">Live Demo</a>
+            </div>
+             <a href="#investors" class="hidden md:block bg-orange-500 text-white font-bold py-2 px-4 rounded-lg cta-button hover:bg-orange-600">Acquire This Domain</a>
+            <button id="mobile-menu-button" class="md:hidden">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#home" class="block py-2 text-slate-600 font-semibold mobile-nav-link">Home</a>
+            <a href="#about" class="block py-2 text-slate-600 font-semibold mobile-nav-link">Our Vision</a>
+            <a href="#why-lubbock" class="block py-2 text-slate-600 font-semibold mobile-nav-link">Why Lubbock?</a>
+            <a href="#neighborhoods" class="block py-2 text-slate-600 font-semibold mobile-nav-link">Neighborhoods</a>
+            <a href="#buyers" class="block py-2 text-slate-600 font-semibold mobile-nav-link">Buyers</a>
+            <a href="#sellers" class="block py-2 text-slate-600 font-semibold mobile-nav-link">Sellers</a>
+            <a href="#blog" class="block py-2 text-slate-600 font-semibold mobile-nav-link">Blog</a>
+            <a href="#investors" class="block py-2 text-slate-600 font-semibold mobile-nav-link">For Investors</a>
+            <a href="#contact" class="block py-2 text-slate-600 font-semibold mobile-nav-link">Contact</a>
+            <a href="#demo" class="block py-2 text-slate-600 font-semibold mobile-nav-link">Live Demo</a>
+            <a href="#investors" class="mt-4 block bg-orange-500 text-white text-center font-bold py-2 px-4 rounded-lg cta-button hover:bg-orange-600">Acquire This Domain</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="page-content">
+        <!-- Content will be injected here by JavaScript -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-white mt-12">
+        <div class="container mx-auto px-6 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold brand-text-orange mb-4">Lubbock Nest</h3>
+                    <p class="text-slate-400">Find Your Lubbock Legacy – Homes That Feel Like Home.</p>
+                    <p class="text-slate-400 mt-2">Powered by <span class="font-semibold">LubbockHomeForSale.com</span></p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-slate-400 hover:text-orange-400">Home</a></li>
+                        <li><a href="#about" class="text-slate-400 hover:text-orange-400">About Us</a></li>
+                        <li><a href="#why-lubbock" class="text-slate-400 hover:text-orange-400">Market Stats</a></li>
+                        <li><a href="#investors" class="text-slate-400 hover:text-orange-400">Acquire This Package</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Get Market Alerts</h3>
+                    <p class="text-slate-400 mb-4">Sign up for exclusive Lubbock market alerts and featured listings.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="your.email@example.com" class="w-full rounded-l-lg p-2 text-slate-800 focus:outline-none">
+                        <button type="submit" class="bg-orange-500 text-white font-bold py-2 px-4 rounded-r-lg hover:bg-orange-600">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-slate-700 text-center text-slate-500">
+                <p>&copy; 2025 LubbockHomeForSale.com - A turnkey solution for dominating Lubbock real estate.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+    const pages = {
+        home: `
+            <div class="fade-in">
+                <!-- Hero Section -->
+                <section class="hero-bg text-white">
+                    <div class="container mx-auto px-6 py-32 text-center">
+                        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">Find Your Lubbock Legacy</h1>
+                        <p class="text-xl md:text-2xl mb-8 font-light">Homes That Feel Like Home, in the Heart of the Hub City.</p>
+                        <div class="max-w-2xl mx-auto bg-white/20 backdrop-blur-sm p-4 rounded-lg">
+                            <form class="flex flex-col md:flex-row gap-2">
+                                <input type="text" placeholder="e.g., 3-bed under $250K in Tech Terrace" class="flex-grow p-4 rounded-md text-slate-800 focus:outline-none focus:ring-2 focus:ring-orange-400">
+                                <button type="submit" class="bg-orange-500 text-white font-bold py-4 px-8 rounded-md cta-button hover:bg-orange-600">Search Homes</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Featured Listings -->
+                <section class="py-16 bg-white">
+                    <div class="container mx-auto px-6">
+                        <h2 class="text-3xl font-bold text-center mb-2">Featured Listings</h2>
+                        <p class="text-center text-slate-600 mb-10">Handpicked homes in Lubbock's most desirable neighborhoods.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <!-- Card 1 -->
+                            <div class="bg-slate-50 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                                <img src="https://placehold.co/400x250/F97316/FFFFFF?text=Modern+Family+Home" alt="Featured Home 1" class="w-full h-56 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-2">Charming Tech Terrace Home</h3>
+                                    <p class="text-orange-600 font-semibold text-lg mb-2">$285,000</p>
+                                    <p class="text-slate-600 mb-4">3 Bed | 2 Bath | 1,800 sqft</p>
+                                    <a href="#" class="font-semibold text-orange-500 hover:text-orange-700">View Details &rarr;</a>
+                                </div>
+                            </div>
+                            <!-- Card 2 -->
+                            <div class="bg-slate-50 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                                <img src="https://placehold.co/400x250/DC2626/FFFFFF?text=Cozy+Starter+Home" alt="Featured Home 2" class="w-full h-56 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-2">South Overton Starter</h3>
+                                    <p class="text-orange-600 font-semibold text-lg mb-2">$199,000</p>
+                                    <p class="text-slate-600 mb-4">2 Bed | 1 Bath | 1,250 sqft</p>
+                                    <a href="#" class="font-semibold text-orange-500 hover:text-orange-700">View Details &rarr;</a>
+                                </div>
+                            </div>
+                            <!-- Card 3 -->
+                            <div class="bg-slate-50 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                                <img src="https://placehold.co/400x250/6D28D9/FFFFFF?text=Spacious+Ranch" alt="Featured Home 3" class="w-full h-56 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-2">Kelsey Park New Build</h3>
+                                    <p class="text-orange-600 font-semibold text-lg mb-2">$350,000</p>
+                                    <p class="text-slate-600 mb-4">4 Bed | 3 Bath | 2,400 sqft</p>
+                                    <a href="#" class="font-semibold text-orange-500 hover:text-orange-700">View Details &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CTA Form -->
+                <section class="py-16 bg-slate-100">
+                    <div class="container mx-auto px-6 text-center">
+                        <i data-lucide="users" class="w-16 h-16 mx-auto text-orange-500 mb-4"></i>
+                        <h2 class="text-3xl font-bold mb-4">Get Matched with a Local Agent</h2>
+                        <p class="text-slate-600 max-w-2xl mx-auto mb-8">Let our Lubbock experts guide you home. Fill out the form below and we'll connect you with an agent who understands your needs.</p>
+                        <form class="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-md">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <input type="text" placeholder="First Name" class="w-full p-3 rounded-md border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-400">
+                                <input type="text" placeholder="Last Name" class="w-full p-3 rounded-md border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-400">
+                            </div>
+                            <input type="email" placeholder="Email Address" class="w-full p-3 rounded-md border border-slate-300 mb-4 focus:outline-none focus:ring-2 focus:ring-orange-400">
+                            <textarea placeholder="Tell us what you're looking for..." rows="4" class="w-full p-3 rounded-md border border-slate-300 mb-4 focus:outline-none focus:ring-2 focus:ring-orange-400"></textarea>
+                            <button type="submit" class="w-full bg-orange-500 text-white font-bold py-3 px-8 rounded-md cta-button hover:bg-orange-600">Match Me!</button>
+                        </form>
+                    </div>
+                </section>
+            </div>`,
+        about: `
+            <div class="fade-in container mx-auto px-6 py-16">
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl font-extrabold text-slate-900 mb-4">Our Vision: The <span class="brand-text-orange">Lubbock Nest</span></h1>
+                    <p class="text-lg text-slate-600 max-w-3xl mx-auto">We're more than a domain; we're a ready-to-launch brand that builds trust and captures the heart of the Lubbock community.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <div class="p-6 bg-white rounded-lg shadow-md">
+                            <h3 class="text-2xl font-bold mb-3 flex items-center"><i data-lucide="compass" class="w-8 h-8 mr-3 text-orange-500"></i> Core Positioning</h3>
+                            <p class="text-slate-600">To be the cornerstone of home hunting and selling in Lubbock, evoking warmth, community, and opportunity. We connect people to places where they can build their Lubbock legacy.</p>
+                        </div>
+                        <div class="p-6 bg-white rounded-lg shadow-md">
+                            <h3 class="text-2xl font-bold mb-3 flex items-center"><i data-lucide="megaphone" class="w-8 h-8 mr-3 text-orange-500"></i> Brand Voice</h3>
+                            <p class="text-slate-600">Approachable, expert, and hyper-local. We speak the language of Lubbock. <span class="italic">"From Tech Hill to the Loop, we've got your Lubbock move covered."</span></p>
+                        </div>
+                        <div class="p-6 bg-white rounded-lg shadow-md">
+                             <h3 class="text-2xl font-bold mb-3 flex items-center"><i data-lucide="gem" class="w-8 h-8 mr-3 text-orange-500"></i> Unique Value</h3>
+                             <p class="text-slate-600">Hyper-local SEO dominance. When someone searches "Lubbock home for sale," they land here first. This isn't just a website; it's a lead-generation engine designed to convert 20-30% more local traffic than generic sites.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://placehold.co/600x700/FDBA74/333333?text=Lubbock+Vision" class="rounded-lg shadow-2xl w-full h-auto object-cover">
+                    </div>
+                </div>
+            </div>`,
+        'why-lubbock': `
+            <div class="fade-in container mx-auto px-6 py-16">
+                 <div class="text-center mb-12">
+                    <h1 class="text-4xl font-extrabold text-slate-900 mb-4">The Lubbock Boom: Data-Backed Opportunity</h1>
+                    <p class="text-lg text-slate-600 max-w-3xl mx-auto">Lubbock's real estate market is primed for growth. These numbers prove why this domain is a no-brainer for lead generation.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Stat Card 1 -->
+                    <div class="stat-card p-6 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-orange-100 p-3 rounded-full mr-4">
+                                <i data-lucide="dollar-sign" class="w-8 h-8 text-orange-600"></i>
+                            </div>
+                            <div>
+                                <p class="text-slate-500">Median Home Price</p>
+                                <p class="text-3xl font-bold text-slate-800">$240,000</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-600">Up slightly from $233,978 in 2024, with 43.1% of sales in the affordable $100K–$199K range, perfect for entry-level buyers.</p>
+                    </div>
+                    <!-- Stat Card 2 -->
+                    <div class="stat-card p-6 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-red-100 p-3 rounded-full mr-4">
+                                <i data-lucide="trending-up" class="w-8 h-8 text-red-600"></i>
+                            </div>
+                            <div>
+                                <p class="text-slate-500">Year-Over-Year Growth</p>
+                                <p class="text-3xl font-bold text-slate-800">4.1%</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-600">Home prices are climbing, indicating strong buyer demand and a robust market for sellers and investors.</p>
+                    </div>
+                     <!-- Stat Card 3 -->
+                    <div class="stat-card p-6 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                             <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i data-lucide="clock" class="w-8 h-8 text-blue-600"></i>
+                            </div>
+                            <div>
+                                <p class="text-slate-500">Avg. Days on Market</p>
+                                <p class="text-3xl font-bold text-slate-800">52 Days</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-600">Homes sell quickly, highlighting low inventory and the urgent need for a centralized, trusted source for listings.</p>
+                    </div>
+                     <!-- Stat Card 4 -->
+                    <div class="stat-card p-6 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i data-lucide="building" class="w-8 h-8 text-green-600"></i>
+                            </div>
+                            <div>
+                                <p class="text-slate-500">Rental to Ownership Shift</p>
+                                <p class="text-3xl font-bold text-slate-800">48.2% Rent</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-600">A massive pipeline of 51,146 rental units represents future buyers ready to convert, ideal for lead nurturing.</p>
+                    </div>
+                     <!-- Stat Card 5 -->
+                    <div class="stat-card p-6 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-yellow-100 p-3 rounded-full mr-4">
+                                <i data-lucide="area-chart" class="w-8 h-8 text-yellow-600"></i>
+                            </div>
+                            <div>
+                                <p class="text-slate-500">Market Forecast</p>
+                                <p class="text-3xl font-bold text-slate-800">Thriving</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-600">Increased new construction and buyer activity signal a stable and opportunistic market for 2025 and beyond.</p>
+                    </div>
+                     <!-- Stat Card 6 -->
+                    <div class="stat-card p-6 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-purple-100 p-3 rounded-full mr-4">
+                                <i data-lucide="target" class="w-8 h-8 text-purple-600"></i>
+                            </div>
+                            <div>
+                                <p class="text-slate-500">Lead Growth Potential</p>
+                                <p class="text-3xl font-bold text-slate-800">10-15%</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-600">Lubbock's market is primed for significant lead growth with a geo-targeted asset like this domain.</p>
+                    </div>
+                </div>
+
+                <div class="mt-16 bg-white p-8 rounded-lg shadow-lg text-center">
+                    <h3 class="text-2xl font-bold text-slate-800">The Bottom Line</h3>
+                    <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">This isn't just a domain; it's a first-mover advantage in a growing, stable, and profitable Texas real estate market.</p>
+                </div>
+            </div>`,
+        neighborhoods: `
+            <div class="fade-in container mx-auto px-6 py-16">
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl font-extrabold text-slate-900 mb-4">Lubbock's Hot Neighborhoods</h1>
+                    <p class="text-lg text-slate-600 max-w-3xl mx-auto">Discover the communities that make Lubbock a great place to live, from bustling university districts to quiet family-friendly suburbs.</p>
+                </div>
+                
+                <div class="space-y-12">
+                    <!-- Neighborhood 1 -->
+                    <div class="grid md:grid-cols-2 gap-8 items-center bg-white p-8 rounded-lg shadow-md">
+                        <img src="https://placehold.co/600x400/F97316/FFFFFF?text=South+Overton" class="rounded-lg w-full h-auto object-cover">
+                        <div>
+                            <h2 class="text-3xl font-bold mb-3">South Overton</h2>
+                            <p class="text-slate-600 mb-4">Known for its proximity to Texas Tech University, South Overton is a vibrant mix of historic homes and modern apartments. It's perfect for students, faculty, and young professionals who want to be close to the action, with plenty of dining and entertainment options.</p>
+                            <span class="inline-block bg-orange-100 text-orange-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded-full">Vibrant</span>
+                            <span class="inline-block bg-blue-100 text-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded-full">Walkable</span>
+                            <span class="inline-block bg-green-100 text-green-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded-full">University Life</span>
+                        </div>
+                    </div>
+
+                    <!-- Neighborhood 2 -->
+                    <div class="grid md:grid-cols-2 gap-8 items-center bg-white p-8 rounded-lg shadow-md">
+                        <div class="md:order-2">
+                            <img src="https://placehold.co/600x400/DC2626/FFFFFF?text=Tech+Terrace" class="rounded-lg w-full h-auto object-cover">
+                        </div>
+                        <div class="md:order-1">
+                            <h2 class="text-3xl font-bold mb-3">Tech Terrace</h2>
+                            <p class="text-slate-600 mb-4">A classic Lubbock neighborhood featuring charming, character-filled homes from the 1930s and 40s. Its tree-lined streets, local parks, and unique shopping district make it a highly sought-after area for families and those looking for a strong sense of community.</p>
+                            <span class="inline-block bg-red-100 text-red-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded-full">Historic</span>
+                            <span class="inline-block bg-yellow-100 text-yellow-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded-full">Family-Friendly</span>
+                            <span class="inline-block bg-purple-100 text-purple-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded-full">Community Feel</span>
+                        </div>
+                    </div>
+
+                     <!-- Neighborhood 3 -->
+                    <div class="grid md:grid-cols-2 gap-8 items-center bg-white p-8 rounded-lg shadow-md">
+                        <img src="https://placehold.co/600x400/10B981/FFFFFF?text=Kelsey+Park" class="rounded-lg w-full h-auto object-cover">
+                        <div>
+                            <h2 class="text-3xl font-bold mb-3">Kelsey Park</h2>
+                            <p class="text-slate-600 mb-4">Representing the newer side of Lubbock, Kelsey Park is known for its modern homes, master-planned community layout, and excellent schools. With numerous parks, walking trails, and community events, it's a top choice for families looking for new construction and suburban comfort.</p>
+                            <span class="inline-block bg-green-100 text-green-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded-full">New Construction</span>
+                            <span class="inline-block bg-indigo-100 text-indigo-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded-full">Great Schools</span>
+                            <span class="inline-block bg-pink-100 text-pink-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded-full">Suburban</span>
+                        </div>
+                    </div>
+                </div>
+            </div>`,
+        buyers: `
+            <div class="fade-in container mx-auto px-6 py-16">
+                 <div class="text-center mb-12">
+                    <h1 class="text-4xl font-extrabold text-slate-900 mb-4">Your Lubbock Home Buying Journey Starts Here</h1>
+                    <p class="text-lg text-slate-600 max-w-3xl mx-auto">We provide the tools and expertise to make your home purchase smooth and successful, especially for first-time buyers and relocating families.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <i data-lucide="graduation-cap" class="w-16 h-16 mx-auto text-orange-500 mb-4"></i>
+                        <h2 class="text-2xl font-bold mb-3">First-Time Buyer Guide</h2>
+                        <p class="text-slate-600">Perfect for Texas Tech grads and young professionals. Learn about the buying process, from getting pre-approved to closing the deal.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <i data-lucide="calculator" class="w-16 h-16 mx-auto text-orange-500 mb-4"></i>
+                        <h2 class="text-2xl font-bold mb-3">Mortgage Calculator</h2>
+                        <p class="text-slate-600">Estimate your monthly payments and discover what you can afford in the Lubbock market. Plan your budget with confidence.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <i data-lucide="map" class="w-16 h-16 mx-auto text-orange-500 mb-4"></i>
+                        <h2 class="text-2xl font-bold mb-3">Relocation Resources</h2>
+                        <p class="text-slate-600">Moving to Lubbock for a job or family? We've got guides on schools, amenities, and everything you need to know to make your move seamless.</p>
+                    </div>
+                </div>
+
+                <div class="mt-16 bg-orange-500 text-white p-12 rounded-lg shadow-xl text-center">
+                    <h2 class="text-3xl font-bold mb-4">Ready to Find Your Perfect Home?</h2>
+                    <p class="mb-8 max-w-2xl mx-auto">Connect with a top Lubbock agent who will listen to your needs and find you the home of your dreams.</p>
+                    <a href="#contact" class="bg-white text-orange-500 font-bold py-3 px-8 rounded-lg text-lg cta-button hover:bg-slate-100">Connect With an Agent</a>
+                </div>
+            </div>`,
+        sellers: `
+            <div class="fade-in container mx-auto px-6 py-16">
+                 <div class="text-center mb-12">
+                    <h1 class="text-4xl font-extrabold text-slate-900 mb-4">Sell Your Lubbock Home Faster, For More</h1>
+                    <p class="text-lg text-slate-600 max-w-3xl mx-auto">With homes selling in just 52 days on average, now is the time to sell. We connect you with the resources to maximize your property's value.</p>
+                </div>
+                 <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <img src="https://placehold.co/600x450/1E40AF/FFFFFF?text=For+Sale+Sign" class="rounded-lg shadow-lg">
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h2 class="text-3xl font-bold mb-6">Get Your Free Home Valuation</h2>
+                        <p class="text-slate-600 mb-6">Curious about your home's worth in today's hot market? Fill out the form below for a free, no-obligation valuation from a local Lubbock expert.</p>
+                        <form>
+                            <input type="text" placeholder="Your Full Address" class="w-full p-3 mb-4 rounded-md border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-400">
+                            <input type="email" placeholder="Your Email" class="w-full p-3 mb-4 rounded-md border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-400">
+                            <button type="submit" class="w-full bg-orange-500 text-white font-bold py-3 px-8 rounded-md cta-button hover:bg-orange-600">Get My Valuation</button>
+                        </form>
+                    </div>
+                </div>
+                 <div class="mt-16 grid md:grid-cols-2 gap-8">
+                     <div class="bg-white p-8 rounded-lg shadow-md">
+                        <i data-lucide="megaphone" class="w-12 h-12 text-orange-500 mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-3">Strategic Marketing</h3>
+                        <p class="text-slate-600">We don't just list your home; we market it. Gain exposure through targeted online campaigns, professional photography, and access to a network of eager buyers.</p>
+                    </div>
+                     <div class="bg-white p-8 rounded-lg shadow-md">
+                        <i data-lucide="user-check" class="w-12 h-12 text-orange-500 mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-3">Expert Negotiation</h3>
+                        <p class="text-slate-600">Our affiliated agents are skilled negotiators who work to get you the best possible price and terms, ensuring a smooth and profitable closing.</p>
+                    </div>
+                 </div>
+            </div>`,
+        blog: `
+            <div class="fade-in container mx-auto px-6 py-16">
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl font-extrabold text-slate-900 mb-4">The Lubbock Nest Blog</h1>
+                    <p class="text-lg text-slate-600 max-w-3xl mx-auto">Your source for Lubbock real estate tips, market news, and community highlights.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Blog Post 1 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
+                        <img src="https://placehold.co/400x250/F97316/FFFFFF?text=Neighborhood" class="w-full h-56 object-cover transform group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <p class="text-sm text-slate-500 mb-2">Community</p>
+                            <h3 class="text-xl font-bold mb-3">Top 5 Lubbock Neighborhoods for Families in 2025</h3>
+                            <p class="text-slate-600 mb-4">Discover the best schools, parks, and amenities for your family in Lubbock's top-rated communities.</p>
+                            <a href="#" class="font-semibold text-orange-500 hover:text-orange-700">Read More &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Blog Post 2 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
+                        <img src="https://placehold.co/400x250/DC2626/FFFFFF?text=Market+Trends" class="w-full h-56 object-cover transform group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <p class="text-sm text-slate-500 mb-2">Market Analysis</p>
+                            <h3 class="text-xl font-bold mb-3">Decoding the 2025 Lubbock Market Forecast</h3>
+                            <p class="text-slate-600 mb-4">What do the latest stats mean for buyers and sellers? We break down the trends shaping our local market.</p>
+                            <a href="#" class="font-semibold text-orange-500 hover:text-orange-700">Read More &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Blog Post 3 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
+                         <img src="https://placehold.co/400x250/10B981/FFFFFF?text=Selling+Tips" class="w-full h-56 object-cover transform group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <p class="text-sm text-slate-500 mb-2">Seller Tips</p>
+                            <h3 class="text-xl font-bold mb-3">7 Tips to Sell Your Lubbock Home in Under 52 Days</h3>
+                            <p class="text-slate-600 mb-4">From staging to pricing strategy, learn the secrets to a quick and profitable sale in the Hub City.</p>
+                            <a href="#" class="font-semibold text-orange-500 hover:text-orange-700">Read More &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>`,
+        investors: `
+            <div class="fade-in container mx-auto px-6 py-16">
+                 <div class="text-center mb-12">
+                    <h1 class="text-4xl font-extrabold text-slate-900 mb-4">Acquire the Ultimate Lubbock Real Estate Asset</h1>
+                    <p class="text-lg text-slate-600 max-w-3xl mx-auto">Unlock Lubbock's $240M+ real estate goldmine with this turnkey "Lubbock Local Leads Package."</p>
+                </div>
+                <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-lg shadow-2xl">
+                    <h2 class="text-3xl font-bold mb-6 text-center">The Opportunity: A Geo-Domain That Converts</h2>
+                    <p class="text-center text-slate-600 mb-8">Geo-domains like <span class="font-bold text-orange-600">LubbockHomeForSale.com</span> drive 25% higher local conversions. With Lubbock's market seeing +4.1% growth and 52-day sales, this is your chance to dominate local search and lead generation.</p>
+                    
+                    <h3 class="text-2xl font-bold mb-6 border-b-2 border-orange-200 pb-2">What's Included in The Package:</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <i data-lucide="globe" class="w-10 h-10 text-orange-500 mr-4 flex-shrink-0"></i>
+                            <div>
+                                <h4 class="font-bold text-lg">Premium Geo-Domain</h4>
+                                <p class="text-slate-600">LubbockHomeForSale.com - The #1 search term for local buyers.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i data-lucide="feather" class="w-10 h-10 text-orange-500 mr-4 flex-shrink-0"></i>
+                            <div>
+                                <h4 class="font-bold text-lg">Mini Brand Concept: "Lubbock Nest"</h4>
+                                <p class="text-slate-600">A trusted, hyper-local brand identity ready to deploy.</p>
+                            </div>
+                        </div>
+                         <div class="flex items-start">
+                            <i data-lucide="at-sign" class="w-10 h-10 text-orange-500 mr-4 flex-shrink-0"></i>
+                            <div>
+                                <h4 class="font-bold text-lg">Secured Social Handles & Extensions</h4>
+                                <p class="text-slate-600">@LubbockHomeForSale on IG, X, FB, and key domain extensions (.net, .org) included.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i data-lucide="bar-chart-2" class="w-10 h-10 text-orange-500 mr-4 flex-shrink-0"></i>
+                            <div>
+                                <h4 class="font-bold text-lg">Market Stats & Pitch Deck</h4>
+                                <p class="text-slate-600">A ready-to-use one-pager with key Lubbock market data to prove demand.</p>
+                            </div>
+                        </div>
+                         <div class="flex items-start">
+                            <i data-lucide="layout-template" class="w-10 h-10 text-orange-500 mr-4 flex-shrink-0"></i>
+                            <div>
+                                <h4 class="font-bold text-lg">This Live Minisite Prototype</h4>
+                                <p class="text-slate-600">A clickable, vibecoded demo to show investors and clients the vision.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-10 bg-orange-50 p-6 rounded-lg border border-orange-200">
+                        <h3 class="text-2xl font-bold text-center mb-4">Growth Projection</h3>
+                        <p class="text-center text-slate-700"><span class="font-bold">Year 1:</span> 5,000 monthly visitors &rarr; 500 leads &rarr; Est. $50,000 revenue at 10% conversion. This asset is built to scale into an app, partnerships, and beyond.</p>
+                    </div>
+
+                    <div class="text-center mt-10">
+                        <a href="#contact" class="bg-orange-500 text-white font-bold py-4 px-10 text-xl rounded-lg cta-button hover:bg-orange-600">Claim This Package & Lead Lubbock</a>
+                    </div>
+                </div>
+            </div>`,
+        contact: `
+             <div class="fade-in container mx-auto px-6 py-16">
+                 <div class="text-center mb-12">
+                    <h1 class="text-4xl font-extrabold text-slate-900 mb-4">Let's Build Your Lubbock Empire</h1>
+                    <p class="text-lg text-slate-600 max-w-3xl mx-auto">Contact us to acquire the LubbockHomeForSale.com package or for any other inquiries. Buyers buy vision—let's build yours.</p>
+                </div>
+
+                <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+                    <form>
+                        <div class="mb-4">
+                            <label for="name" class="block text-slate-700 font-bold mb-2">Full Name</label>
+                            <input type="text" id="name" class="w-full p-3 rounded-md border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-400">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-slate-700 font-bold mb-2">Email Address</label>
+                            <input type="email" id="email" class="w-full p-3 rounded-md border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-400">
+                        </div>
+                        <div class="mb-4">
+                            <label for="subject" class="block text-slate-700 font-bold mb-2">Subject</label>
+                            <select id="subject" class="w-full p-3 rounded-md border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-orange-400">
+                                <option>Acquire LubbockHomeForSale.com Package</option>
+                                <option>General Inquiry</option>
+                                <option>Partnership Opportunity</option>
+                            </select>
+                        </div>
+                         <div class="mb-6">
+                            <label for="message" class="block text-slate-700 font-bold mb-2">Message</label>
+                            <textarea id="message" rows="5" class="w-full p-3 rounded-md border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-400"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-orange-500 text-white font-bold py-3 px-8 rounded-md cta-button hover:bg-orange-600">Send Message</button>
+                    </form>
+                </div>
+            </div>`,
+        demo: `
+            <div class="fade-in">
+                <div class="demo-page">
+                    <h1 class="hero">Welcome to Lubbock Nest – Your Home in the Hub City</h1>
+                    <p>Search Lubbock homes by price, neighborhood, or vibe.</p>
+                    <input type="text" placeholder="e.g., 3-bed under $250K in Tech Terrace">
+                    <button>Search Homes</button>
+                    <section style="margin-top: 50px;">
+                        <h2>Why Lubbock? Booming Market, Endless Opportunity</h2>
+                        <p>Median price: $240K | Avg. days on market: 52 | Growth: +4.1% YoY</p>
+                    </section>
+                    <footer style="margin-top: 50px;">Powered by LubbockHomeForSale.com – Secure your leads today.</footer>
+                </div>
+            </div>`
+    };
+
+    const pageContent = document.getElementById('page-content');
+    const navLinks = document.querySelectorAll('#nav-links .nav-link');
+    const mobileNavLinks = document.querySelectorAll('#mobile-menu .mobile-nav-link');
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    function router() {
+        let route = window.location.hash.substring(1) || 'home';
+        if (!pages[route]) {
+            route = 'home';
+        }
+        
+        pageContent.innerHTML = pages[route];
+        lucide.createIcons();
+        window.scrollTo(0, 0);
+
+        // Update active nav link
+        navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${route}`);
+        });
+        
+        // Close mobile menu on navigation
+        mobileMenu.classList.add('hidden');
+    }
+
+    window.addEventListener('hashchange', router);
+    window.addEventListener('load', router);
+
+    // Mobile menu toggle
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Add click listeners to all nav links (desktop and mobile) to handle routing
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href.length > 1) { // Ensure it's not just "#"
+                // e.preventDefault(); // Don't prevent default, let hashchange handle it
+                mobileMenu.classList.add('hidden'); // Close menu on click
+            }
+        });
+    });
+
+    </script>
+</body>
+</html>
